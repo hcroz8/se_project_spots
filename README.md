@@ -19,3 +19,7 @@ The CSS blocks to this site help the site be able to function on any device.
 **Responsive Design**
 
 The coding on this project comes together to give this site a responsive design for desktop and mobile users alike!
+
+## Deployment
+
+This website is deployed to GitHub pages
