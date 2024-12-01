@@ -7,15 +7,31 @@
 .profile__avatar {
   margin-right: 20px;
   border-radius: 4px;
+  height: 190px;
+  width: 190px;
 }
 
 .profile__name {
   margin: 0 0 12px;
   font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
 .profile__description {
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
 .profile__column {
@@ -28,6 +44,10 @@
   border: none;
   background-color: transparent;
   color: rgba(33, 33, 33, 0.7);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: left;
   cursor: pointer;
   transition: opacity 1s;
   width: 108px;
@@ -51,13 +71,71 @@
   color: #fff;
   width: 149px;
   height: 52px;
-  padding: 18px 32px;
+  padding: 0;
   gap: 8px;
   cursor: pointer;
   align-self: flex-end;
   transition: opacity 1s;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .profile__add-btn:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__column {
+    margin: 0 0 32px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 6px;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-width: 288px;
+  }
+
+  .profile__avatar {
+    height: 80px;
+    width: 80px;
+    margin: 0 0 12px;
+  }
+
+  .profile__description {
+    font-size: 16px;
+    margin: 0 0 32px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-width: 288px;
+  }
+
+  .profile__add-btn {
+    margin: 0;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .profile__edit-btn {
+    margin: 0;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
 }
