@@ -23,3 +23,7 @@ The coding on this project comes together to give this site a responsive design 
 ## Deployment
 
 This website is deployed to GitHub pages
+
+## Video Link
+
+https://drive.google.com/uc?id=1j3FiOAvTsBfOmWtZifvruG_6a2ow-wH6&export=download
