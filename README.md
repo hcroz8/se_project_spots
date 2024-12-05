@@ -22,7 +22,7 @@ The coding on this project comes together to give this site a responsive design 
 
 ## Deployment
 
-This website is deployed to GitHub pages
+https://hcroz8.github.io/se_project_spots/
 
 ## Video Link
 
