@@ -11,6 +11,7 @@
   justify-content: center;
   visibility: hidden;
   padding: 0 20px;
+  cursor: pointer;
 }
 
 .modal_opened {
@@ -62,6 +63,12 @@
   border-radius: 8px;
   font-size: 20px;
   font-weight: 500;
+  border-color: rgba(33, 33, 33, 0.4);
+  cursor: pointer;
+}
+
+.modal__input :hover {
+  border-color: #000;
 }
 
 .modal__submit-btn {
