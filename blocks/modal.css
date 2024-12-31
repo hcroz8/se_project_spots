@@ -39,6 +39,12 @@
   padding: 0;
   border: none;
   cursor: pointer;
+  color: rgba(33, 33, 33, 0.4);
+  transition: opacity 1s;
+}
+
+.modal__close-btn :hover {
+  color: #000;
 }
 
 .modal__title {
