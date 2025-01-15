@@ -69,7 +69,7 @@
   transition: opacity 1s;
 }
 
-.profile__add-btn {
+.new__post-btn {
   margin-left: auto;
   border-radius: 8px;
   border: none;
@@ -84,9 +84,10 @@
   transition: opacity 1s;
   font-size: 16px;
   font-weight: 500;
+  opacity: 1;
 }
 
-.profile__add-btn:hover {
+.new__post-btn:hover {
   opacity: 0.8;
 }
 
@@ -122,12 +123,6 @@
     max-width: 288px;
   }
 
-  .profile__add-btn {
-    margin: 0;
-    width: 100%;
-    font-size: 16px;
-  }
-
   .profile__edit-btn {
     margin: 0;
     width: 100%;
@@ -138,5 +133,11 @@
   .profile__edit {
     width: 100%;
     margin-right: 8px;
+  }
+
+  .new__post-btn {
+    margin: 0;
+    width: 100%;
+    font-size: 16px;
   }
 }
