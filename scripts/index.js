@@ -139,7 +139,6 @@ cardModalCloseBtn.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
-editFormElement.addEventListener("submit", closeModal);
 
 intialCards.forEach((item) => {
   const cardEl = getCardElement(item);
