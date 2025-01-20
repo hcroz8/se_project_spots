@@ -35,6 +35,7 @@
   height: 20px;
   border: none;
   background-color: transparent;
+  background-repeat: no-repeat;
   opacity: 40%;
   cursor: pointer;
   transition: opacity 1s;
@@ -42,15 +43,19 @@
 
 .card__like-btn:hover {
   opacity: 1;
+  background-repeat: no-repeat;
 }
 
 .card__like-btn_liked {
-  background-image: url(../images/like_icon_liked.svg);
+  background-image: url(../images/liked_heart.svg);
   opacity: 1;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 
 .card__like-btn_liked:hover {
   background-image: url(../images/like_icon_liked-hover.svg);
+  background-repeat: no-repeat;
 }
 
 .card__delete-btn {
