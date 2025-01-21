@@ -108,11 +108,11 @@ function handleEditFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log(cardNameInput.value);
-  console.log(cardLinkInput.value);
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardEl = getCardElement(inputValues);
-  cardList.append(cardEl);
+  const addCardModal = document.querySelector("#add-card-modal");
+  cardList.prepend(cardEl);
+  closeModal(addCardModal);
 }
 
 profileEditButton.addEventListener("click", () => {
