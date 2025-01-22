@@ -157,10 +157,6 @@
     padding: 0 10px;
   }
 
-  .modal__form {
-    width: 100%;
-  }
-
   .modal__content {
     padding: 12px;
     border-radius: 4px;
@@ -193,7 +189,8 @@
     width: 100%;
   }
 
-  .modal__submit-btn {
-    width: 100%;
+  .submit-btn {
+    width: 276px;
+    max-width: 627px;
   }
 }
