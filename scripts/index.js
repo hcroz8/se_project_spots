@@ -30,13 +30,13 @@ const intialCards = [
 ];
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
-const cardModalButton = document.querySelector(".new__post-btn");
+const cardModalButton = document.querySelector(".profile__post-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
-const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
+const editModalCloseBtn = editModal.querySelector(".close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
@@ -44,7 +44,7 @@ const editModalDescriptionInput = editModal.querySelector(
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardFormElement = cardModal.querySelector(".modal__form");
-const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
+const cardModalCloseBtn = cardModal.querySelector(".close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
@@ -80,12 +80,8 @@ function getCardElement(data) {
     previewModalCaptionEl.textContent = data.name;
   });
 
-  cardDeleteBtn.addEventListener("click", (evt) => {
-    evt.target.closest(".card").remove();
-  });
-
-  previewCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
   });
 
   return cardElement;
@@ -110,9 +106,8 @@ function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardEl = getCardElement(inputValues);
-  const addCardModal = document.querySelector("#add-card-modal");
   cardList.prepend(cardEl);
-  closeModal(addCardModal);
+  closeModal(cardModal);
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -125,9 +120,10 @@ editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
 
-const previewCloseButton = previewModal.querySelector(
-  ".modal__close-btn_type_preview"
-);
+const previewCloseBtn = previewModal.querySelector(".close-btn_type_preview");
+previewCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);

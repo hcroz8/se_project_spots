@@ -74,11 +74,9 @@
   background-image: url(../images/delete_Hover.svg);
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
-    max-width: 288px;
-    width: 100%;
   }
 
   .card__title {
