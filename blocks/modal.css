@@ -83,7 +83,7 @@
   padding: 0;
   border: none;
   cursor: pointer;
-  color: rgba(33, 33, 33, 0.4);
+  opacity: 0.4;
   transition: opacity 1s;
 }
 
@@ -95,8 +95,8 @@
   opacity: 1;
 }
 
-.close-btn :hover {
-  color: rgba(33, 33, 33, 1);
+.close-btn:hover {
+  opacity: 1;
 }
 
 .close-btn_type_preview:hover {
