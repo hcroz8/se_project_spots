@@ -36,7 +36,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: visibility 1s linear, visibility 1s linear;
 }
 
 .modal__content_type_preview {
@@ -44,7 +43,6 @@
   border-radius: 8px;
   width: unset;
   background-color: transparent;
-  transition: visibility 0.5s linear 0.5s, visibility 0.5s linear 0.5s;
 }
 
 .modal__caption {
@@ -147,7 +145,6 @@
   border: none;
   transition: opacity 0.8s;
   opacity: 1;
-  width: 100%;
 }
 
 .submit-btn :hover {
@@ -158,6 +155,10 @@
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
+  }
+
+  .modal__form {
+    width: 100%;
   }
 
   .modal__content {
