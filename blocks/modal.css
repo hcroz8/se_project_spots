@@ -11,7 +11,6 @@
   justify-content: center;
   visibility: hidden;
   padding: 0 20px;
-  cursor: pointer;
   opacity: 0;
   transition: opacity 300ms linear, visibility 300ms linear;
 }
@@ -110,8 +109,7 @@
 
 .modal__label {
   margin-bottom: 32px;
-  display: flex;
-  flex-direction: column;
+  display: block;
   gap: 8px;
   font-style: 16px;
   color: rgba(33, 33, 33, 0.7);
@@ -121,6 +119,7 @@
 .modal__input {
   padding: 16px 12px;
   border-radius: 8px;
+  margin: 8px 0 0;
   font-size: 20px;
   font-weight: 500;
   border-color: rgba(33, 33, 33, 0.4);
@@ -131,6 +130,21 @@
 
 .modal__input :hover {
   border-color: #000;
+}
+
+.modal__input:invalid {
+  border-color: rgba(255, 0, 0, 0.7);
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  color: rgba(255, 0, 0, 0.7);
 }
 
 .submit-btn {
@@ -148,7 +162,7 @@
 }
 
 .submit-btn :hover {
-  opacity: 0.7;
+  opacity: 0.8;
   cursor: pointer;
 }
 
