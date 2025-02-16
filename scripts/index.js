@@ -159,7 +159,7 @@ cardModalCloseBtn.addEventListener("click", () => {
 });
 
 function handleEsc(evt) {
-  if (evt.key === "Escape") {
+  if (evt.key === "Escap e") {
     const openModal = document.querySelector(".modal_opened");
     if (openModal) {
       closeModal(openModal);
