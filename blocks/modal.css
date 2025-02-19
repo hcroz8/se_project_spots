@@ -133,7 +133,7 @@
 }
 
 .modal__input:invalid {
-  border-color: rgba(255, 0, 0, 0.7);
+  border-color: rgba(255, 0, 0, 0.6);
 }
 
 .modal__input_type_error {
@@ -208,7 +208,7 @@
     width: 100%;
   }
 
-  .submit-btn {
+  .modal__submit {
     width: 276px;
     max-width: 627px;
   }
