@@ -132,10 +132,6 @@
   border-color: #000;
 }
 
-.modal__input:invalid {
-  border-color: rgba(255, 0, 0, 0.6);
-}
-
 .modal__input_type_error {
   border: 1px solid rgba(255, 0, 0, 0.6);
 }
