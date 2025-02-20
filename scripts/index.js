@@ -89,7 +89,6 @@ function getCardElement(data) {
 }
 
 function closeOverlay(evt) {
-  const openModal = document.querySelector(".modal_opened"); //remember to use dot here to reference that modal_opened is a class name
   if (evt.target.classList.contains("modal")) {
     closeModal(openModal);
   }
@@ -97,7 +96,7 @@ function closeOverlay(evt) {
 
 function handleEsc(evt) {
   if (evt.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened"); //remember to use dot here to reference that modal_opened is a class name
+    const openModal = document.querySelector(".modal_opened");
     if (openModal) {
       closeModal(openModal);
     }
@@ -128,7 +127,6 @@ function handleAddCardSubmit(evt) {
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardEl = getCardElement(inputValues);
   cardList.prepend(cardEl);
-  const formElement = document.querySelector(".modal__form");
   evt.target.reset();
   disableButton(cardSubmitBtn);
   closeModal(cardModal);
@@ -160,15 +158,6 @@ cardModalButton.addEventListener("click", () => {
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
 });
-
-function handleEsc(evt) {
-  if (evt.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
-}
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
