@@ -90,7 +90,7 @@ function getCardElement(data) {
 
 function closeOverlay(evt) {
   if (evt.target.classList.contains("modal")) {
-    closeModal(openModal);
+    closeModal(evt.target);
   }
 }
 
@@ -128,7 +128,8 @@ function handleAddCardSubmit(evt) {
   const cardEl = getCardElement(inputValues);
   cardList.prepend(cardEl);
   evt.target.reset();
-  disableButton(cardSubmitBtn);
+  console.log(cardSubmitBtn);
+  cardSubmitBtn.disabled = true;
   closeModal(cardModal);
 }
 
@@ -153,6 +154,7 @@ previewCloseBtn.addEventListener("click", () => {
 
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);
+  cardSubmitBtn.disabled = true;
 });
 
 cardModalCloseBtn.addEventListener("click", () => {
