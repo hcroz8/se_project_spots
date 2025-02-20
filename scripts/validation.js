@@ -73,7 +73,7 @@ function enableValidation(config) {
 //const buttonElement = formElement.querySelector(config.submitButtonSelector);
 //}
 
-const settings = {
+const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit",
@@ -82,5 +82,5 @@ const settings = {
   errorClass: "modal__error",
 };
 
-enableValidation(settings);
+enableValidation(config);
 console.log("enable validation");
