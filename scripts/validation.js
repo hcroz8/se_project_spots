@@ -46,7 +46,7 @@ const setEventListeners = (formEl) => {
   const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
   const buttonElement = formEl.querySelector(".modal__submit");
 
-  toggleButtonState(inputList, buttonElement, settings);
+  toggleButtonState(inputList, buttonElement, config);
 
   formEl.addEventListener("reset", () => {
     disableButton(buttonElement, config);
