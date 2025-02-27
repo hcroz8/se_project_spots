@@ -1,12 +1,13 @@
-const showInputError = (formEl, inputEl, errorMsg) => {
+const showInputError = (formEl, inputEl, errorMsg, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
   inputEl.classList.add(config.inputErrorClass);
 };
 
-const hideInputError = (formEl, inputEl) => {
+const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
+
   inputEl.classList.remove(config.inputErrorClass);
 };
 
@@ -62,11 +63,10 @@ const setEventListeners = (formEl, config) => {
 
 function enableValidation(config) {
   const formList = document.querySelectorAll(config.formSelector);
+  formList.forEach((formEl) => {
+    setEventListeners(formEl, config);
+  });
 }
-
-formList.forEach((formEl) => {
-  setEventListeners(formEl, config);
-});
 
 const config = {
   formSelector: ".modal__form",
