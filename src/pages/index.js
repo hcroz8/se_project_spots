@@ -1,3 +1,6 @@
+import { enableValidation, config } from "../scripts/validation.js";
+import {index.css} from "../pages/index.css";
+
 const intialCards = [
   {
     name: "Val Thorens",
@@ -168,3 +171,5 @@ intialCards.forEach((item) => {
   const cardEl = getCardElement(item);
   cardList.append(cardEl);
 });
+
+enableValidation(config);
