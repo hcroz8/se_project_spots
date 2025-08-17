@@ -80,7 +80,7 @@ const avatarModal = document.querySelector("#avatar-modal");
 const avatarFormElement = avatarModal.querySelector(".avatar__form");
 const avatarSubmitBtn = avatarModal.querySelector(".modal__submit");
 const avatarModalCloseBtn = avatarModal.querySelector(".close-btn");
-const avatarLinkInput = avatarModal.querySelector("#profile-avatar-link-input");
+const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
 
 const previewModal = document.querySelector("#preview-modal");
@@ -172,11 +172,11 @@ function handleAddCardSubmit(evt) {
 }
 
 function handleAvatarSubmit(evt) {
-  //evt.preventDefault();
+  evt.preventDefault();
   console.log(avatarInput.value);
   api.editAvatarInfo(avatarInput.value)
   .then ((data) => {
-   console.log(data)
+   console.log(data.avatar)
   })
   .catch(console.error);
 }
@@ -219,5 +219,6 @@ avatarModalCloseBtn.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
+avatarFormElement.addEventListener("submit", handleAvatarSubmit);
 
 enableValidation(config);

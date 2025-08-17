@@ -19,6 +19,11 @@
   width: 100%;
 }
 
+.avatar__form {
+  width: 100%;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
 .modal_opened {
   visibility: visible;
   opacity: 1;
