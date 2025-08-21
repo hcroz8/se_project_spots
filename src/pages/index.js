@@ -50,7 +50,7 @@ api.getAppInfo()
     });
     profileName.textContent = userInfo.name;
     profileDescription.textContent = userInfo.about;
-    //profileAvatar.src = userInfo.avatar;
+    profileAvatar.src = userInfo.avatar;
   })
   .catch(console.error);
 
@@ -60,6 +60,7 @@ const avatarModalButton = document.querySelector(".profile__avatar-btn");
 const cardModalButton = document.querySelector(".profile__post-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
+const profileAvatar = document.querySelector(".profile__avatar");
 
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
@@ -82,6 +83,8 @@ const avatarSubmitBtn = avatarModal.querySelector(".modal__submit");
 const avatarModalCloseBtn = avatarModal.querySelector(".close-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
+const deleteModal = document.querySelector("#delete-modal");
+const deleteModalCloseBtn = deleteModal.querySelector(".close-btn");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
@@ -116,7 +119,10 @@ function getCardElement(data) {
   });
 
   cardDeleteBtn.addEventListener("click", () => {
-    cardElement.remove();
+    openModal(deleteModal);
+    const deleteBtn = deleteModal.querySelector(".modal__submit");
+    
+    //cardElement.remove();
   });
 
   return cardElement;
@@ -151,12 +157,16 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
-  .then(() => {
-    profileName.textContent = editModalNameInput.value;
-    profileDescription.textContent = editModalDescriptionInput.value;
-    closeModal(editModal);
-  })
+  api
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value
+    })
+    .then(() => {
+      profileName.textContent = editModalNameInput.value;
+      profileDescription.textContent = editModalDescriptionInput.value;
+      closeModal(editModal);
+    })
     .catch(console.error);
 }
 
@@ -174,8 +184,11 @@ function handleAddCardSubmit(evt) {
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
   console.log(avatarInput.value);
-  api.editAvatarInfo(avatarInput.value)
+  api
+  .editAvatarInfo({ avatar: avatarInput.value })
   .then ((data) => {
+    profileAvatar.src = data.avatar;
+    closeModal(avatarModal);
    console.log(data.avatar)
   })
   .catch(console.error);
