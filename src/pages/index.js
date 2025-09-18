@@ -106,6 +106,7 @@ function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
+    // console.log(data.link, data.name);
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -127,7 +128,7 @@ function getCardElement(data) {
     previewModalCaptionEl.textContent = data.name;
   });
 
-  cardDeleteBtn.addEventListener("click", (evt) => handleDeleteCard(cardElement, data));
+  cardDeleteBtn.addEventListener("click", (evt) => handleDeleteCard(cardElement, data._id));
 
   return cardElement;
 }
@@ -176,13 +177,19 @@ function handleEditFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
-  const cardEl = getCardElement(inputValues);
-  cardList.prepend(cardEl);
-  evt.target.reset();
-  console.log(cardSubmitBtn);
-  disableButton(cardSubmitBtn);
-  closeModal(cardModal);
+  api.handleAddCard ((JSON.stringify({ name:cardNameInput.value,
+  link:cardLinkInput.value })))    
+    .then((card) => {
+      console.log(card);
+    const cardEl = getCardElement(card);
+    cardList.prepend(cardEl);
+    evt.target.reset();
+    console.log(cardSubmitBtn);
+    cardSubmitBtn.disabled = true;
+    toggleButtonState([cardNameInput, cardLinkInput], cardSubmitBtn, validationConfig); // disableButton is not defined in this scope, probably you need toggleButtonState from the validation.js
+    closeModal(cardModal);
+})
+.catch(console.error);
 }
 
 function handleAvatarSubmit(evt) {
@@ -200,8 +207,12 @@ function handleAvatarSubmit(evt) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
-  api.deleteCard()
-  .then(() => {})
+  api
+  .deleteCard(selectedCardID)
+  .then(() => {
+    selectedCard.remove();
+    closeModal(deleteModal);
+  })
   .catch(console.error);
 }
 
@@ -248,8 +259,9 @@ avatarModalCloseBtn.addEventListener("click", () => {
 });
 
 deleteForm.addEventListener("submit", () => {
-  selectedCard.remove();
-  closeModal(deleteModal);});
+  handleDeleteSubmit();
+  closeModal(deleteModal);
+});
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
