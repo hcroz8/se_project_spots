@@ -88,7 +88,7 @@ const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
 // Delete form elements
 const deleteModal = document.querySelector("#delete-modal");
-const deleteForm = deleteModal.querySelector(".modal__form");
+const deleteForm = deleteModal.querySelector(".delete__form");
 
 // Preview image popup
 const previewModal = document.querySelector("#preview-modal");
@@ -205,11 +205,13 @@ function handleAvatarSubmit(evt) {
   .catch(console.error);
 }
 
-function handleDeleteSubmit(evt) {
-  evt.preventDefault();
+function handleDeleteSubmit(/*evt*/) {
+//const button = evt.target.querySelector(".modal__submit");
+
   api
   .deleteCard(selectedCardID)
   .then(() => {
+    console.log(selectedCardID);
     selectedCard.remove();
     closeModal(deleteModal);
   })
@@ -260,6 +262,7 @@ avatarModalCloseBtn.addEventListener("click", () => {
 
 deleteForm.addEventListener("submit", () => {
   handleDeleteSubmit();
+  selectedCard.remove();
   closeModal(deleteModal);
 });
 
