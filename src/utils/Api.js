@@ -40,7 +40,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      Promise.reject(`Error: ${res.status}`);
+     return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -56,7 +56,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      Promise.reject(`Error: ${res.status}`);
+     return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -71,7 +71,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      Promise.reject(`Error: ${res.status}`);
+     return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -83,7 +83,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      Promise.reject(`Error: ${res.status}`);
+     return Promise.reject(`Error: ${res.status}`);
     });
   }
   // other methods for working with the API
